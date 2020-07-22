@@ -12,8 +12,11 @@
 const beesKnees = {}
 
 beesKnees.init = function() {
+    beesKnees.random();
+    beesKnees.update();
     beesKnees.submitListener();
     beesKnees.againListener();
+    console.log(beesKnees.index);
 }
 
 beesKnees.terms = [
@@ -79,24 +82,47 @@ beesKnees.terms = [
     },
     //Ruby Queen, Vieux Carre - cocktail. Buzzer - slang. Horsefeathers - slang. Giggle Water. Cats PJ's. Dry Up. Clam. Dewdropper. Drugstore Cowboy. Floorflusher. Oyster fruit. Heeler. 
 ]
+beesKnees.index = 0;
+beesKnees.numGuess = 0;
 
-$('h2').text(beesKnees.terms[3].name);
+//Randomize the term list array
+beesKnees.random = function(){
+    beesKnees.terms.sort(function(a, b){return 0.5 - Math.random()});
+}
 
+//Updates term to be guessed and currently functioning buttons
+beesKnees.update = function(){
+    $('h2').text(beesKnees.terms[beesKnees.index].name);  
+    $('button[type=submit').show();
+    $('button[type=reset]').hide();
+}
 //Listening for users guess
 beesKnees.submitListener = function(){
     $('button[type=submit]').on('click', function(){
         guess = $(this).val();
-        console.log(guess);
-        if(guess === beesKnees.terms[3].type){
-            console.log('yep');
-        }
+        //checking if user guess is correct
+        if(guess === beesKnees.terms[beesKnees.index].type){
+            beesKnees.numGuess++;
+            console.log('yep', beesKnees.numGuess);
+        } else {
+            console.log('nerp');
+        };   
+        $('.score').text(`${beesKnees.numGuess} of ${beesKnees.index+1}`)
+        //taking away the guessing buttons so you cant continue to guess on one term 
+        $('button[type=submit').hide();
+        if(beesKnees.index < beesKnees.terms.length-1){
+            $('button[type=reset]').show();
+        }; 
     });
 }
 
+//Listening for against button and running term update
 beesKnees.againListener = function(){
     $('button[type=reset]').on('click', function(){
-        guess = $(this).val();
-        console.log(guess);
+        if(beesKnees.index < beesKnees.terms.length-1){
+            beesKnees.index++;
+        };
+        beesKnees.update();
     });
 }
 
