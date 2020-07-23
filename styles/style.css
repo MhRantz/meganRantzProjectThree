@@ -56,15 +56,92 @@ button {
   background-color: transparent;
 }
 
+html, button {
+  color: #D9FFEF;
+  font-size: 125%;
+}
+
 h2 {
   font-family: 'Limelight', cursive;
   font-size: calc(3rem + 5vw);
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
+}
+
+h3 {
+  font-size: 0.75rem;
+  color: #58AF91;
+  text-align: center;
+}
+
+.headline span {
+  font-family: 'Limelight', cursive;
+  font-size: 2rem;
+  color: #58AF91;
 }
 
 button {
   font-family: 'Open Sans', sans-serif;
+  color: #D9FFEF;
+  font-weight: 600;
+}
+
+@media (max-width: 770px) {
+  h2 {
+    font-size: calc(2rem + 5vw);
+  }
+}
+
+.mainWrapper {
+  margin: 0 100px;
+}
+
+.designOnly1 {
+  height: 45vh;
+  width: 100%;
+  border: 2px solid #D9FFEF;
+  border-radius: 10px;
+  margin-top: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.designOnly1 .designOnly2 {
+  height: calc(45vh + 25px);
+  width: calc(100% - 25px);
+  border: 2px solid #D9FFEF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.designOnly1 .designOnly2 .designOnly3 {
+  height: calc(45vh + 50px);
+  width: calc(100% - 25px);
+  border: 2px solid #D9FFEF;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .headline {
@@ -78,19 +155,29 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 5vh 0 0 0;
-  height: 50vh;
-  border: 2px solid #D9FFEF;
+  height: 45vh;
+  width: 100%;
 }
 
 .headline div {
-  height: 240px;
+  height: 220px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.headline h3 {
+  width: 80%;
+  margin: 20px;
+}
+
+.rules {
+  margin: 7vh 0 0 25px;
+  border: 2px solid #58AF91;
+  width: calc(100% - 50px);
 }
 
 .submitButtonsBank {
@@ -104,20 +191,26 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 5vh 0 0 0;
+  margin: 25px 0 0 25px;
+  width: calc(100% - 50px);
 }
 
 .submitButtonsBank div {
   width: 31%;
   height: 100px;
-  border: 2px solid gold;
+  border: 2px solid #D9FFEF;
 }
 
 .submitButtonsBank div button {
   background-color: #001D24;
-  margin: 5px 5%;
-  width: 90%;
-  height: 90px;
+  margin: 10px 10px;
+  width: calc(100% - 20px);
+  height: 80px;
+}
+
+.submitButtonsBank div button:hover {
+  background-color: #FFC424;
+  color: #001D24;
 }
 
 .submitButtonsBank div button.right {
@@ -127,6 +220,7 @@ button {
 
 .submitButtonsBank div button.wrong {
   background-color: #EF582F;
+  color: #001D24;
 }
 
 .goAgain {
@@ -134,7 +228,8 @@ button {
   display: inline-block;
   height: 100px;
   width: 100px;
-  rotate: 45deg;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   margin-left: calc(50% - 50px);
   margin-top: 75px;
   display: -webkit-box;
@@ -154,11 +249,12 @@ button {
 }
 
 .goAgain div:hover {
-  background-color: gold;
+  background-color: #58AF91;
 }
 
 .goAgain div button {
-  rotate: -45deg;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
   width: 100%;
   height: 100%;
 }
@@ -167,15 +263,12 @@ button {
   color: #001D24;
 }
 
-html, button {
-  color: #D9FFEF;
-  font-size: 125%;
+@media (max-width: 650px) {
+  .mainWrapper {
+    margin: 0 20px;
+  }
 }
 
 body {
   background-color: #001D24;
-}
-
-.mainWrapper {
-  margin: 0 100px;
 }

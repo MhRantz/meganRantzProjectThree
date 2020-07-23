@@ -1,45 +1,86 @@
+.mainWrapper {
+    margin: 0 100px;
+}
+
+.designOnly1 {
+    height: 45vh;
+    width: 100%;
+    border: $lineWeight1 solid $primC;
+    border-radius: 10px;
+    margin-top: 5vh;
+    @include center;
+    .designOnly2{
+        height: calc(45vh + 25px);
+        width: calc(100% - 25px);
+        border: $lineWeight1 solid $primC;
+        @include center;
+        .designOnly3{
+            height: calc(45vh + 50px);
+            width: calc(100% - 25px);
+            border: $lineWeight1 solid $primC;
+            border-radius: 10px;
+            @include center;
+        }
+    }
+}
+
+        
 .headline{
     //Flex
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5vh 0 0 0;
     //
-    height: 50vh;
-    border: $lineWeight1 solid $primC;
+    height: 45vh;
+    width: 100%;
     div{
-        height: 240px;
+        height: 220px;
         display: flex;
         align-items: flex-end;
     }
+    h3 {
+        width: 80%;
+        margin: 20px;
+    }
+}
+
+.rules {
+    margin: 7vh 0 0 25px;
+    border: 2px solid $rightC;
+    width: calc(100% - 50px);
 }
 
 .submitButtonsBank{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 5vh 0 0 0;
+    margin: /*7vh*/ 25px 0 0 25px;
+    width: calc(100% - 50px);
     div{
         width: 31%;
         height: 100px;
-        border: $lineWeight1 solid gold;
+        border: $lineWeight1 solid $primC;
         button {
             background-color: $baseC;
-            margin: 5px 5%;
-            width: 90%;
-            height: 90px;
-            
+            margin: 10px 10px;
+            width: calc(100% - 20px);
+            height: 80px;
+            &:hover {
+                background-color: $highLightC;
+                color: $baseC;
+            }   
         }
         
     }
 } 
 .submitButtonsBank  div button.right {
-    background-color: #58AF91;
+    background-color: $rightC;
     color: $baseC;
 }
 
 .submitButtonsBank div button.wrong {
     background-color: #EF582F;
+    color: $baseC;
 }
 
 .goAgain {
@@ -47,22 +88,20 @@
     display: inline-block;
     height: 100px;
     width: 100px;
-    rotate: 45deg;
+    transform: rotate(45deg);
     margin-left: calc(50% - 50px);
     margin-top: 75px;
     //flex
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+    @include center;
     //
     div {
         width: 80px;
-        height: 80px;    
+        height: 80px;        
         &:hover {
-            background-color: gold;
+            background-color: $rightC;
         }
         button {
-            rotate: -45deg;
+            transform: rotate(-45deg);
             width: 100%;
             height: 100%;
             &:hover {

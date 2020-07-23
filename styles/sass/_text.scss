@@ -2,9 +2,30 @@ h2 {
     font-family: 'Limelight', cursive;
     font-size: calc(3rem + 5vw);
     text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
+}
+
+h3 {
+    font-size: 0.75rem;
+    color: $rightC;
+    text-align: center;
+}
+
+.headline span {
+    font-family: 'Limelight', cursive;
+    font-size: 2rem;
+    color: $rightC;
 }
 
 button {
     font-family: 'Open Sans', sans-serif;
+    color: $primC;
+    font-weight: 600;
+}
+
+
+@media (max-width: 770px) {
+    h2 {
+        font-size: calc(2rem + 5vw); 
+    }
 }

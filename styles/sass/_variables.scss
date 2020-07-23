@@ -1,6 +1,20 @@
+
 $baseC: #001D24;
 $primC: #D9FFEF;
+$rightC: #58AF91;
+$highLightC: #FFC424;
 
 $lineWeight1: 2px;
 
 //#002D30
+
+html, button {
+    color: $primC;
+    font-size: 125%;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
