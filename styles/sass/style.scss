@@ -1,11 +1,19 @@
 @import 'setup';
+@import 'variables';
 @import 'text';
+@import 'questionSection';
 
-html {
-    color: #D9FFEF;
+$baseC: #002D30;
+
+html, button {
+    color: $primC;
     font-size: 125%;
 }
 
 body {
-    background-color: #002D30;
+    background-color: #001D24;
+}
+
+.mainWrapper {
+    margin: 0 100px;
 }

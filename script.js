@@ -21,61 +21,61 @@ beesKnees.init = function() {
 
 beesKnees.terms = [
     {
-        name: 'MAZUMA',
+        name: 'Mazuma',
         type: 'both',
         definition: 'A person or thing that surpasses excellence; dope',
         recipe: '40ml Bourbon. 1dh Grenadine. 1dh Pastis. 20ml Sweet Vermouth.'
     },
     {
-        name: 'BEES KNEES',
+        name: 'Bees Knees',
         type: 'both',
         definition: 'Cash; Money',
         recipe: '2on Gin. 3/4on Honey Syrup. 1/2on Lemon Juice.'
     },
     {
-        name: 'SHEBA',
+        name: 'Sheba',
         type: 'slang',
         definition: 'an attractive person (primarily a woman)',
         recipe: ''
     },
     {
-        name: 'JAKE',
+        name: 'Jake',
         type: 'slang',
         definition: 'Fine; Copasetic',
         recipe: ''
     },
     {
-        name: 'DUCK SOUP',
+        name: 'Duck Soup',
         type: 'slang',
         definition: 'An easy task',
         recipe: ''
     },
     {
-        name: 'GOLD RUSH',
+        name: 'Gold Rush',
         type: 'cocktail',
         definition: '',
         recipe: '1on Bourbon. 1 1/2on Ginger Liqueur. 1/2on Lemon Juice.'
     },
     {
-        name: 'HARVEY WALLBANGER',
+        name: 'Harvey Wallbanger',
         type: 'cocktail',
         definition: '',
         recipe: '4on Orange Juice. 1 1/2on Vodka. 1/2on Galliano L\'Autentico. Orange slice and cherry.'
     },
     {
-        name: 'GO CHASE YOURSELF',
+        name: 'Go Chase Yourself',
         type: 'slang',
         definition: 'Get out of here; Beat it',
         recipe: ''
     },
     {
-        name: 'GIMLET',
+        name: 'Gimlet',
         type: 'both',
         definition: 'a continually boring person',
         recipe: '2on Gin. 3/4on Lime Cordial. Lime wedge.'
     },
     {
-        name: 'WOLF BITE',
+        name: 'Wolf Bite',
         type: 'cocktail',
         definition: '',
         recipe: '1/4on Absinthe. 1/2on Melon Liqueur. 1on Pineapple Juice. Splash Lime Soda and Grenadine.'
@@ -84,6 +84,8 @@ beesKnees.terms = [
 ]
 beesKnees.index = 0;
 beesKnees.numGuess = 0;
+beesKnees.butSub = $('button[type=submit]');
+beesKnees.butAgn = $('button[type=reset]');
 
 //Randomize the term list array
 beesKnees.random = function(){
@@ -93,38 +95,39 @@ beesKnees.random = function(){
 //Updates term to be guessed and currently functioning buttons
 beesKnees.update = function(){
     $('h2').text(beesKnees.terms[beesKnees.index].name);  
-    $('button[type=submit').show();
-    $('button[type=reset]').hide();
+    //locking the again button, unlocking the guess buttons
+    beesKnees.butSub.removeClass('wrong right');
+    beesKnees.butSub.prop("disabled", false);
+    beesKnees.butAgn.prop("disabled", true);
 }
 //Listening for users guess
 beesKnees.submitListener = function(){
-    $('button[type=submit]').on('click', function(){
+    beesKnees.butSub.on('click', function(){
         guess = $(this).val();
         //checking if user guess is correct
         if(guess === beesKnees.terms[beesKnees.index].type){
             beesKnees.numGuess++;
-            console.log('yep', beesKnees.numGuess);
+            $(this).addClass('right');
         } else {
-            console.log('nerp');
+            $(this).addClass('wrong');
         };   
         $('.score').text(`${beesKnees.numGuess} of ${beesKnees.index+1}`)
-        //taking away the guessing buttons so you cant continue to guess on one term 
-        $('button[type=submit').hide();
-        if(beesKnees.index < beesKnees.terms.length-1){
-            $('button[type=reset]').show();
-        }; 
+        //locking the guess buttons, unlocking the again button 
+        beesKnees.butSub.prop("disabled", true);
+        beesKnees.butAgn.prop("disabled", false);
     });
 }
 
 //Listening for against button and running term update
 beesKnees.againListener = function(){
-    $('button[type=reset]').on('click', function(){
+    beesKnees.butAgn.on('click', function(){
         if(beesKnees.index < beesKnees.terms.length-1){
             beesKnees.index++;
         };
         beesKnees.update();
     });
 }
+
 
 
 

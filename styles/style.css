@@ -60,17 +60,122 @@ h2 {
   font-family: 'Limelight', cursive;
   font-size: calc(3rem + 5vw);
   text-align: center;
+  letter-spacing: 2px;
 }
 
 button {
   font-family: 'Open Sans', sans-serif;
 }
 
-html {
+.headline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5vh 0 0 0;
+  height: 50vh;
+  border: 2px solid #D9FFEF;
+}
+
+.headline div {
+  height: 240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.submitButtonsBank {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 5vh 0 0 0;
+}
+
+.submitButtonsBank div {
+  width: 31%;
+  height: 100px;
+  border: 2px solid gold;
+}
+
+.submitButtonsBank div button {
+  background-color: #001D24;
+  margin: 5px 5%;
+  width: 90%;
+  height: 90px;
+}
+
+.submitButtonsBank div button.right {
+  background-color: #58AF91;
+  color: #001D24;
+}
+
+.submitButtonsBank div button.wrong {
+  background-color: #EF582F;
+}
+
+.goAgain {
+  border: 2px solid #D9FFEF;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  rotate: 45deg;
+  margin-left: calc(50% - 50px);
+  margin-top: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.goAgain div {
+  width: 80px;
+  height: 80px;
+}
+
+.goAgain div:hover {
+  background-color: gold;
+}
+
+.goAgain div button {
+  rotate: -45deg;
+  width: 100%;
+  height: 100%;
+}
+
+.goAgain div button:hover {
+  color: #001D24;
+}
+
+html, button {
   color: #D9FFEF;
   font-size: 125%;
 }
 
 body {
-  background-color: #002D30;
+  background-color: #001D24;
+}
+
+.mainWrapper {
+  margin: 0 100px;
 }
