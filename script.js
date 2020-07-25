@@ -1,14 +1,3 @@
-//Watch for user click on the 3 button's 
-//Determine if user is correct by looking up the answer in that terms object in an array of terms
-//Update score with number of guesses, and number that are correct if needed
-//Serve up next term in the array of objects of 1920's slang or cocktails or both
-
-//NEXT STEP OF EXPANSION
-//display meaning of the slang or recipe of the cocktail or both
-
-//NEXT STEP OF EXPANSION
-//cool animations and nice designs
-
 const beesKnees = {}
 
 beesKnees.init = function() {
@@ -30,7 +19,7 @@ beesKnees.terms = [
         name: 'Bees Knees',
         type: 'both',
         definition: 'A person or thing that surpasses excellence; dope',
-        recipe: '2on Gin. 3/4on Honey Syrup. 1/2on Lemon Juice.'
+        recipe: '2oz Gin. 3/4oz Honey Syrup. 1/2oz Lemon Juice.'
     },
     {
         name: 'Sheba',
@@ -54,13 +43,13 @@ beesKnees.terms = [
         name: 'Gold Rush',
         type: 'cocktail',
         definition: '',
-        recipe: '1on Bourbon. 1 1/2on Ginger Liqueur. 1/2on Lemon Juice.'
+        recipe: '1oz Bourbon. 1 1/2oz Ginger Liqueur. 1/2oz Lemon Juice.'
     },
     {
         name: 'Harvey Wallbanger',
         type: 'cocktail',
         definition: '',
-        recipe: '4on Orange Juice. 1 1/2on Vodka. 1/2on Galliano L\'Autentico. Orange slice and cherry.'
+        recipe: '4oz Orange Juice. 1 1/2oz Vodka. 1/2oz Galliano L\'Autentico. Orange slice and cherry.'
     },
     {
         name: 'Go Chase Yourself',
@@ -72,15 +61,63 @@ beesKnees.terms = [
         name: 'Gimlet',
         type: 'both',
         definition: 'a continually boring person',
-        recipe: '2on Gin. 3/4on Lime Cordial. Lime wedge.'
+        recipe: '2oz Gin. 3/4oz Lime Cordial. Lime wedge.'
     },
     {
         name: 'Wolf Bite',
         type: 'cocktail',
         definition: '',
-        recipe: '1/4on Absinthe. 1/2on Melon Liqueur. 1on Pineapple Juice. Splash Lime Soda and Grenadine.'
+        recipe: '1/4oz Absinthe. 1/2oz Melon Liqueur. 1oz Pineapple Juice. Splash Lime Soda and Grenadine.'
     },
-    //Ruby Queen, Vieux Carre - cocktail. Buzzer - slang. Horsefeathers - slang. Giggle Water. Cats PJ's. Dry Up. Clam. Dewdropper. Drugstore Cowboy. Floorflusher. Oyster fruit. Heeler. 
+    {
+        name: 'Floor Flusher',
+        type: 'slang',
+        definition: 'an insatiable dancer',
+        recipe: ''
+    },
+    {
+        name: 'Viex Carre',
+        type: 'cocktail',
+        definition: '',
+        recipe: '1oz Bourbon. 1oz Cognac. 1oz Sweet vermouth. 1dh Angostura. 1dh Peychauds'
+    },
+    {
+        name: 'Bell Bottom',
+        type: 'cocktail',
+        definition: 'A sailor',
+        recipe: ''
+    },
+    {
+        name: 'Cheaters',
+        type: 'slang',
+        definition: 'eye glasses',
+        recipe: ''
+    },  
+    {
+        name: 'Ruby Queen',
+        type: 'cocktail',
+        definition: '',
+        recipe: '1 1/2oz Scotch. 1oz Red beet juice. 3/4oz Honey syrup. 3/4oz Lemon juice. Tarragon garnish.'
+    },
+    {
+        name: 'Buzzer',
+        type: 'slang',
+        definition: 'Police badge',
+        recipe: ''
+    },
+    {
+        name: 'Getaway Sticks',
+        type: 'slang',
+        definition: 'Legs',
+        recipe: ''
+    },
+    {
+        name: 'Ward Eight',
+        type: 'cocktail',
+        definition: '',
+        recipe: '2oz Whiskey. 1/2oz Lemon juice. 1/2oz Orange juice. 2tbsp Grenadine. 2 Cherries'
+    },
+    // Horsefeathers - slang. Giggle Water. Cats PJ's. Dry Up. Clam. Dewdropper. Drugstore Cowboy. Oyster fruit. Heeler. 
 ]
 
 //GLOBALS!//
@@ -97,7 +134,11 @@ beesKnees.random = function(){
 
 //Updates term to be guessed and currently functioning buttons
 beesKnees.update = function(){
-    $('h2').text(beesKnees.terms[beesKnees.index].name);
+    $('h2').addClass('lightsOn').text(beesKnees.terms[beesKnees.index].name);
+    setTimeout(function(){
+        $('h2').removeClass('lightsOn');
+    },1000);
+    //$('h2').text(beesKnees.terms[beesKnees.index].name);
     //locking the again button, unlocking the guess buttons and emptying the results definition and recipe
     beesKnees.butSub.removeClass('wrong right');
     beesKnees.butSub.prop("disabled", false);
@@ -108,14 +149,20 @@ beesKnees.update = function(){
 
 //Injection of Definition 
 beesKnees.def = function() {
-    $('.definition div h4').text('Slang Definition');
+    $('.definition div h4').addClass('lightsOn').text('Slang Definition');
+    setTimeout(function(){
+        $('h4').removeClass('lightsOn');
+    },1000);
     $('.definition div span').text(`${beesKnees.terms[beesKnees.index].name}:`);
     $('.definition div p').text(beesKnees.terms[beesKnees.index].definition);
 }
 
 //Injection of Cocktail Recipe
 beesKnees.recipe = function() {
-    $('.recipe div h4').text('Cocktail Recipe');
+    $('.recipe div h4').addClass('lightsOn').text('Cocktail Recipe');
+    setTimeout(function(){
+        $('h4').removeClass('lightsOn');
+    },1000);
     $('.recipe div span').text(`${beesKnees.terms[beesKnees.index].name}:`);
     $('.recipe div p').text(beesKnees.terms[beesKnees.index].recipe);
 }

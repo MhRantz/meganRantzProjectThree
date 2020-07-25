@@ -120,6 +120,9 @@ button {
   .headline h3 span, h3 {
     font-size: 0.75rem;
   }
+  h4 {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 650px) {
@@ -133,7 +136,7 @@ button {
     font-size: 2.5rem;
   }
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -209,7 +212,13 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 47vh;
   width: 100%;
+}
+
+.designOnly1 .designOnly2 .designOnly3 .headline h2 {
+  width: 100%;
+  text-shadow: 0px 0px 3px #40BB91;
 }
 
 .designOnly1 .designOnly2 .designOnly3 .headline div {
@@ -224,6 +233,61 @@ button {
 
 .designOnly1 .designOnly2 .designOnly3 .headline h3 {
   margin: 20px;
+}
+
+@-webkit-keyframes lights {
+  0% {
+    text-shadow: 0px 0px 6px #40BB91;
+  }
+  20% {
+    text-shadow: 0px 0px 7px #40BB91;
+  }
+  40% {
+    text-shadow: 0px 0px 8px #40BB91;
+  }
+  50% {
+    text-shadow: 0px 0px 8px #40BB91;
+  }
+  60% {
+    text-shadow: 0px 0px 8px #40BB91;
+  }
+  80% {
+    text-shadow: 0px 0px 7px #40BB91;
+  }
+  100% {
+    text-shadow: 0px 0px 6px #40BB91;
+  }
+}
+
+@keyframes lights {
+  0% {
+    text-shadow: 0px 0px 6px #40BB91;
+  }
+  20% {
+    text-shadow: 0px 0px 7px #40BB91;
+  }
+  40% {
+    text-shadow: 0px 0px 8px #40BB91;
+  }
+  50% {
+    text-shadow: 0px 0px 8px #40BB91;
+  }
+  60% {
+    text-shadow: 0px 0px 8px #40BB91;
+  }
+  80% {
+    text-shadow: 0px 0px 7px #40BB91;
+  }
+  100% {
+    text-shadow: 0px 0px 6px #40BB91;
+  }
+}
+
+.lightsOn {
+  -webkit-animation-name: lights;
+          animation-name: lights;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
 .submitButtonsBank {
@@ -261,9 +325,11 @@ button {
           box-shadow: 0px 0px 10px 0 #FFC424;
 }
 
-.submitButtonsBank div button:active {
+.submitButtonsBank div button:focus {
   background-color: #FFC424;
   color: #001D24;
+  -webkit-box-shadow: 0px 0px 10px 0 #FFC424;
+          box-shadow: 0px 0px 10px 0 #FFC424;
 }
 
 .submitButtonsBank div button.right {
@@ -272,6 +338,11 @@ button {
 }
 
 .submitButtonsBank div button.right:hover {
+  -webkit-box-shadow: 0px 0px 10px 0 #40BB91;
+          box-shadow: 0px 0px 10px 0 #40BB91;
+}
+
+.submitButtonsBank div button.right:focus {
   -webkit-box-shadow: 0px 0px 10px 0 #40BB91;
           box-shadow: 0px 0px 10px 0 #40BB91;
 }
@@ -286,11 +357,17 @@ button {
           box-shadow: 0px 0px 10px 0 #EF582F;
 }
 
+.submitButtonsBank div button.wrong:focus {
+  -webkit-box-shadow: 0px 0px 10px 0 #EF582F;
+          box-shadow: 0px 0px 10px 0 #EF582F;
+}
+
 .gridFather {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 92px 1fr;
       grid-template-rows: 92px 1fr;
+  position: relative;
 }
 
 .gridFather .flexFather {
@@ -335,13 +412,13 @@ button {
           box-shadow: 0px 0px 10px 0 #D9FFEF;
 }
 
-.gridFather .flexFather .goAgain div:active {
+.gridFather .flexFather .goAgain div:focus {
   background-color: #40BB91;
   -webkit-box-shadow: 0px 0px 10px 0 #D9FFEF;
           box-shadow: 0px 0px 10px 0 #D9FFEF;
 }
 
-.gridFather .flexFather .goAgain button {
+.gridFather .flexFather .goAgain div button {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   width: 100%;
@@ -352,12 +429,32 @@ button {
   transition: color 0, box-shadow 1s, -webkit-box-shadow 1s;
 }
 
-.gridFather .flexFather .goAgain button:hover {
+.gridFather .flexFather .goAgain div button:hover {
   color: #001D24;
 }
 
+.gridFather .flexFather .goAgain div button:focus {
+  color: #001D24;
+}
+
+.designOnly5, .designOnly6 {
+  height: 2px;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  border-top: 2px solid #40BB91;
+}
+
+.designOnly5 {
+  top: 72px;
+}
+
+.designOnly6 {
+  top: 112px;
+}
+
 .designOnly4 {
-  border-top: 4px solid #FFC424;
+  border-top: 2px solid #FFC424;
 }
 
 .resultExplanation {
@@ -381,9 +478,28 @@ button {
   margin: 2.5vw;
 }
 
+.resultExplanation .recipe div h4, .resultExplanation .definition div h4 {
+  text-shadow: 0px 0px 3px #40BB91;
+}
+
 .resultExplanation .recipe div span, .resultExplanation .definition div span {
   display: inline-block;
   margin: 15px 0 10px 0;
+}
+
+footer p {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  line-height: 50px;
+  border-top: 2px solid #40BB91;
+  color: #40BB91;
+}
+
+@media (max-width: 770px) {
+  .designOnly1 .designOnly2 .designOnly3 .headline div {
+    height: 180px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -398,9 +514,6 @@ button {
   }
   .designOnly1 .designOnly2 .designOnly3 {
     height: calc(37vh + 50px);
-  }
-  .designOnly1 .designOnly2 .designOnly3 .headline div {
-    height: 180px;
   }
   .submitButtonsBank {
     display: -ms-grid;

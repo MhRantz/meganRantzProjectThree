@@ -26,8 +26,12 @@
                 flex-direction: column;
                 align-items: center;
                 //
-                //@extend: 47vh;
+                height: 47vh;
                 width: 100%;
+                h2 {
+                    width: 100%;
+                    text-shadow:0px 0px 3px $rightC;
+                }
                 div{
                     height: 220px;
                     display: flex;
@@ -35,16 +39,27 @@
                 }
                 h3 {
                     margin: 20px;
+                    
                 }
             }
         }
     }
 }
 
-        
+@keyframes lights {
+    0% {text-shadow:0px 0px 6px $rightC;};
+    20% {text-shadow:0px 0px 7px $rightC;};
+    40% {text-shadow:0px 0px 8px $rightC;};
+    50% {text-shadow:0px 0px 8px $rightC;};
+    60% {text-shadow:0px 0px 8px $rightC;};
+    80% {text-shadow:0px 0px 7px $rightC;};
+    100% {text-shadow:0px 0px 6px $rightC;};
+}
 
-
-
+.lightsOn {
+    animation-name: lights;
+    animation-duration: 1s;
+}       
 
 .submitButtonsBank{
     display: flex;
@@ -66,9 +81,10 @@
                 color: $baseC;
                 box-shadow: 0px 0px 10px 0 $highLightC;
             }
-            &:active {
+            &:focus {
                 background-color: $highLightC;
                 color: $baseC;
+                box-shadow: 0px 0px 10px 0 $highLightC;
             }
         }
         
@@ -78,6 +94,7 @@
     background-color: $rightC;
     color: $baseC;
     &:hover{box-shadow: 0px 0px 10px 0 $rightC;}
+    &:focus{box-shadow: 0px 0px 10px 0 $rightC;}
     
 }
 
@@ -85,11 +102,13 @@
     background-color: $wrongC;
     color: $baseC;
     &:hover{box-shadow: 0px 0px 10px 0 $wrongC;}
+    &:focus{box-shadow: 0px 0px 10px 0 $wrongC;}
 }
 
 .gridFather {
     display: grid;
     grid-template-rows: 92px 1fr;
+    position: relative;
     .flexFather{
     display: flex;
     justify-content: center;
@@ -112,10 +131,9 @@
                 background-color: $rightC;
                 box-shadow: 0px 0px 10px 0 $primC;
             }
-            &:active {
+            &:focus {
                 background-color: $rightC;
                 box-shadow: 0px 0px 10px 0 $primC;
-            }
             }
             button {
                 transform: rotate(-45deg);
@@ -124,16 +142,36 @@
                 transition: color 0, box-shadow 1s;
                 &:hover {
                     color: $baseC;
-                    
+                    }
+                &:focus {
+                    color: $baseC;
                     }
                 }
             }
         }
     }
+}
+.designOnly5, .designOnly6 {
+    height: 2px; 
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    border-top: $lineWeight1 solid $rightC;
+}
+
+.designOnly5 {
+    top: 72px;
+}
+
+.designOnly6 {
+    top: 112px
+}
 
 .designOnly4 {
-    border-top: 4px solid $highLightC;
+    border-top: $lineWeight1 solid $highLightC;
 }
+
+
 .resultExplanation {
     display: grid; 
     grid-template-columns: 1fr 1fr;
@@ -147,6 +185,9 @@
         ////////
         div {
             margin: 2.5vw;
+            h4 {
+                text-shadow:0px 0px 3px $rightC;
+            }
             span {
                 display: inline-block;
                 margin: 15px 0 10px 0;
@@ -155,5 +196,11 @@
     }
 }
 
-
-
+footer p {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    line-height: 50px;
+    border-top: $lineWeight1 solid $rightC;
+    color: $rightC;
+}
