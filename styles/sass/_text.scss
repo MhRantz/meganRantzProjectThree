@@ -9,6 +9,13 @@ h3 {
     font-size: 1rem;
     color: $rightC;
     text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h4 {
+    font-family: 'Limelight', cursive;
+    font-size: 2rem;
+    letter-spacing: 2px;
 }
 
 .headline h3 span {
@@ -19,7 +26,12 @@ h3 {
     color: $rightC;
 }
 
-.headline span {
+.resultExplanation span {
+    font-size: 1.2rem;
+    color: $rightC;
+}
+
+.score {
     font-family: 'Limelight', cursive;
     font-size: 2rem;
     color: $primC;
@@ -57,6 +69,10 @@ button {
 @media (max-width: 500px) {
     h2 {
         font-size: 2.5rem; 
+    }
+
+    h4 {
+        font-size: 1.5rem;
     }
 }
 

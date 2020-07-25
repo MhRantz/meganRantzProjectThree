@@ -23,13 +23,13 @@ beesKnees.terms = [
     {
         name: 'Mazuma',
         type: 'both',
-        definition: 'A person or thing that surpasses excellence; dope',
+        definition: 'Cash; Money',
         recipe: '40ml Bourbon. 1dh Grenadine. 1dh Pastis. 20ml Sweet Vermouth.'
     },
     {
         name: 'Bees Knees',
         type: 'both',
-        definition: 'Cash; Money',
+        definition: 'A person or thing that surpasses excellence; dope',
         recipe: '2on Gin. 3/4on Honey Syrup. 1/2on Lemon Juice.'
     },
     {
@@ -82,10 +82,13 @@ beesKnees.terms = [
     },
     //Ruby Queen, Vieux Carre - cocktail. Buzzer - slang. Horsefeathers - slang. Giggle Water. Cats PJ's. Dry Up. Clam. Dewdropper. Drugstore Cowboy. Floorflusher. Oyster fruit. Heeler. 
 ]
+
+//GLOBALS!//
 beesKnees.index = 0;
 beesKnees.numGuess = 0;
 beesKnees.butSub = $('button[type=submit]');
 beesKnees.butAgn = $('button[type=reset]');
+////////////////////////////////////////////
 
 //Randomize the term list array
 beesKnees.random = function(){
@@ -94,12 +97,29 @@ beesKnees.random = function(){
 
 //Updates term to be guessed and currently functioning buttons
 beesKnees.update = function(){
-    $('h2').text(beesKnees.terms[beesKnees.index].name);  
-    //locking the again button, unlocking the guess buttons
+    $('h2').text(beesKnees.terms[beesKnees.index].name);
+    //locking the again button, unlocking the guess buttons and emptying the results definition and recipe
     beesKnees.butSub.removeClass('wrong right');
     beesKnees.butSub.prop("disabled", false);
     beesKnees.butAgn.prop("disabled", true);
+    $('.definition div').children().empty();
+    $('.recipe div').children().empty();
 }
+
+//Injection of Definition 
+beesKnees.def = function() {
+    $('.definition div h4').text('Slang Definition');
+    $('.definition div span').text(`${beesKnees.terms[beesKnees.index].name}:`);
+    $('.definition div p').text(beesKnees.terms[beesKnees.index].definition);
+}
+
+//Injection of Cocktail Recipe
+beesKnees.recipe = function() {
+    $('.recipe div h4').text('Cocktail Recipe');
+    $('.recipe div span').text(`${beesKnees.terms[beesKnees.index].name}:`);
+    $('.recipe div p').text(beesKnees.terms[beesKnees.index].recipe);
+}
+
 //Listening for users guess
 beesKnees.submitListener = function(){
     beesKnees.butSub.on('click', function(){
@@ -110,7 +130,16 @@ beesKnees.submitListener = function(){
             $(this).addClass('right');
         } else {
             $(this).addClass('wrong');
-        };   
+        };
+        //Injecting words definition and recipe
+        if (beesKnees.terms[beesKnees.index].type === 'slang'){
+            beesKnees.def();
+        } else if (beesKnees.terms[beesKnees.index].type === 'cocktail'){
+            beesKnees.recipe();
+        } else if (beesKnees.terms[beesKnees.index].type === 'both') {
+            beesKnees.def();
+            beesKnees.recipe();
+        }
         $('.score').text(`${beesKnees.numGuess} of ${beesKnees.index+1}`)
         //locking the guess buttons, unlocking the again button 
         beesKnees.butSub.prop("disabled", true);
@@ -128,9 +157,7 @@ beesKnees.againListener = function(){
     });
 }
 
-
-
-
+//whole thing goes!
 $(function () {
     beesKnees.init();
 });

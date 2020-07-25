@@ -26,7 +26,7 @@
                 flex-direction: column;
                 align-items: center;
                 //
-                height: 47vh;
+                //@extend: 47vh;
                 width: 100%;
                 div{
                     height: 220px;
@@ -64,7 +64,12 @@
             &:hover {
                 background-color: $highLightC;
                 color: $baseC;
-            }   
+                box-shadow: 0px 0px 10px 0 $highLightC;
+            }
+            &:active {
+                background-color: $highLightC;
+                color: $baseC;
+            }
         }
         
     }
@@ -72,11 +77,14 @@
 .submitButtonsBank  div button.right {
     background-color: $rightC;
     color: $baseC;
+    &:hover{box-shadow: 0px 0px 10px 0 $rightC;}
+    
 }
 
 .submitButtonsBank div button.wrong {
-    background-color: #EF582F;
+    background-color: $wrongC;
     color: $baseC;
+    &:hover{box-shadow: 0px 0px 10px 0 $wrongC;}
 }
 
 .gridFather {
@@ -102,30 +110,47 @@
             height: 60px;        
             &:hover {
                 background-color: $rightC;
+                box-shadow: 0px 0px 10px 0 $primC;
+            }
+            &:active {
+                background-color: $rightC;
+                box-shadow: 0px 0px 10px 0 $primC;
+            }
             }
             button {
                 transform: rotate(-45deg);
                 width: 100%;
                 height: 100%;
+                transition: color 0, box-shadow 1s;
                 &:hover {
                     color: $baseC;
+                    
                     }
                 }
             }
         }
     }
-    .designOnly4 {
-        border-top: 4px solid $highLightC;
-    }
-    .resultExplanation {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+
+.designOnly4 {
+    border-top: 4px solid $highLightC;
+}
+.resultExplanation {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    .recipe, .definition {
+        margin-top: 90px;
+        width: 100%;
+        height: 250px;
+        border: $lineWeight1 solid $rightC;
+        ////////
         div {
-            margin-top: 90px;
-            width: 47%;
-            height: 200px;
-            border: $lineWeight1 solid $rightC;
+            margin: 2.5vw;
+            span {
+                display: inline-block;
+                margin: 15px 0 10px 0;
+            }
         }
     }
 }
