@@ -3,9 +3,9 @@ const beesKnees = {}
 beesKnees.init = function() {
     beesKnees.random();
     beesKnees.update();
+    beesKnees.entry();
     beesKnees.submitListener();
     beesKnees.againListener();
-    console.log(beesKnees.index);
 }
 
 beesKnees.terms = [
@@ -83,7 +83,7 @@ beesKnees.terms = [
     },
     {
         name: 'Bell Bottom',
-        type: 'cocktail',
+        type: 'slang',
         definition: 'A sailor',
         recipe: ''
     },
@@ -132,13 +132,18 @@ beesKnees.random = function(){
     beesKnees.terms.sort(function(a, b){return 0.5 - Math.random()});
 }
 
+//////Fade in of remaining page content for style 
+beesKnees.entry = function(){
+    $('.submitButtonsBank').css('visibility','visible').hide().fadeIn(2000);
+    $('.gridFather').css('visibility','visible').hide().fadeIn(2000);
+}
+
 //Updates term to be guessed and currently functioning buttons
 beesKnees.update = function(){
     $('h2').addClass('lightsOn').text(beesKnees.terms[beesKnees.index].name);
     setTimeout(function(){
         $('h2').removeClass('lightsOn');
     },1000);
-    //$('h2').text(beesKnees.terms[beesKnees.index].name);
     //locking the again button, unlocking the guess buttons and emptying the results definition and recipe
     beesKnees.butSub.removeClass('wrong right');
     beesKnees.butSub.prop("disabled", false);
@@ -191,15 +196,22 @@ beesKnees.submitListener = function(){
         //locking the guess buttons, unlocking the again button 
         beesKnees.butSub.prop("disabled", true);
         beesKnees.butAgn.prop("disabled", false);
+         //Get Ready for next question
+        if (beesKnees.index < beesKnees.terms.length){
+            beesKnees.index++;       
+        }
+        if (beesKnees.index === beesKnees.terms.length){
+            $('.submitButtonsBank').addClass('hiddenTrue');
+            $('.headline h3').text('Final Score');
+            $('.headline h3 span').empty();
+        }
+        //////////////////////////////////
     });
 }
 
 //Listening for against button and running term update
 beesKnees.againListener = function(){
     beesKnees.butAgn.on('click', function(){
-        if(beesKnees.index < beesKnees.terms.length-1){
-            beesKnees.index++;
-        };
         beesKnees.update();
     });
 }

@@ -27,15 +27,25 @@
                 align-items: center;
                 //
                 height: 47vh;
-                width: 100%;
-                h2 {
-                    width: 100%;
-                    text-shadow:0px 0px 3px $rightC;
-                }
+                width: 100%;   
                 div{
                     height: 220px;
                     display: flex;
                     align-items: flex-end;
+                    position: relative;
+                    h2 {
+                        width: 100%;
+                        text-shadow:0px 0px 3px $rightC;
+                        margin-bottom: 10px;
+                    }
+                    .designOnly7 {
+                        position: absolute;
+                        bottom: 0;
+                        height: 2px;
+                        width: 90%;
+                        margin-left: 5%;
+                        border-top: 1px solid $highLightC;
+                    }
                 }
                 h3 {
                     margin: 20px;
@@ -156,15 +166,15 @@
     width: 90%;
     position: absolute;
     left: 5%;
-    border-top: $lineWeight1 solid $rightC;
+    border-top: 1px solid $highLightC;
 }
 
 .designOnly5 {
-    top: 72px;
+    top: 80px;
 }
 
 .designOnly6 {
-    top: 112px
+    top: 104px
 }
 
 .designOnly4 {
@@ -203,4 +213,8 @@ footer p {
     line-height: 50px;
     border-top: $lineWeight1 solid $rightC;
     color: $rightC;
+}
+
+.hiddenTrue {
+    visibility: hidden !important;
 }
