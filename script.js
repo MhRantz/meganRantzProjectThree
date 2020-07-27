@@ -30,7 +30,7 @@ beesKnees.terms = [
     {
         name: 'Jake',
         type: 'slang',
-        definition: 'Fine; Copasetic',
+        definition: 'Fine; Copacetic',
         recipe: ''
     },
     {
@@ -138,7 +138,7 @@ beesKnees.terms = [
     {
         name: 'Drugstore Cowboy',
         type: 'both',
-        definition: 'either a man who loafs outside drugstores looking to meet people',
+        definition: 'a man who loafs outside drugstores looking to meet people',
         recipe: '3 Green cardamom pods. 1 1/2oz Cognac. 3/4oz Benedictine DOM. 3/4oz Apricot Brandy. 3/4oz Lemon Juice. '
     },
     // Horsefeathers - slang. Giggle Water. Cats PJ's. Dry Up. Clam. Dewdropper. Drugstore Cowboy. Oyster fruit. Heeler. 
