@@ -117,6 +117,30 @@ beesKnees.terms = [
         definition: '',
         recipe: '2oz Whiskey. 1/2oz Lemon juice. 1/2oz Orange juice. 2tbsp Grenadine. 2 Cherries'
     },
+    {
+        name: 'Vamp',
+        type: 'both',
+        definition: 'a voracious flirt',
+        recipe: '2oz Tart cherry juice. 1/4oz Simple syrup. 1/2 Angosturas. 2oz Tonic water. Cherries.'
+    },
+    {
+        name: 'Ossified',
+        type: 'slang',
+        definition: 'to be drunk',
+        recipe: ''
+    },
+    {
+        name: 'Sinker',
+        type: 'both',
+        definition: 'a doughnut, from sinking in coffee',
+        recipe: '2oz Whiskey. 1oz Pineapple juice. 1/2oz Lemon juice. 1/2oz Ginger syrup.'
+    },
+    {
+        name: 'Drugstore Cowboy',
+        type: 'both',
+        definition: 'either a man who loafs outside drugstores looking to meet people',
+        recipe: '3 Green cardamom pods. 1 1/2oz Cognac. 3/4oz Benedictine DOM. 3/4oz Apricot Brandy. 3/4oz Lemon Juice. '
+    },
     // Horsefeathers - slang. Giggle Water. Cats PJ's. Dry Up. Clam. Dewdropper. Drugstore Cowboy. Oyster fruit. Heeler. 
 ]
 
@@ -200,18 +224,24 @@ beesKnees.submitListener = function(){
         if (beesKnees.index < beesKnees.terms.length){
             beesKnees.index++;       
         }
+        //End game shut down 
         if (beesKnees.index === beesKnees.terms.length){
             $('.submitButtonsBank').addClass('hiddenTrue');
             $('.headline h3').text('Final Score');
             $('.headline h3 span').empty();
+            beesKnees.butAgn.text('Play Again');
         }
-        //////////////////////////////////
     });
 }
 
-//Listening for against button and running term update
+//Listening for next word button
 beesKnees.againListener = function(){
     beesKnees.butAgn.on('click', function(){
+        //End game re-load page to play again
+        if (beesKnees.index === beesKnees.terms.length){
+            location.reload(); 
+        }
+        //Set up new term
         beesKnees.update();
     });
 }
